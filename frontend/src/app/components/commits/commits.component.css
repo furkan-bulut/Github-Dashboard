@@ -108,16 +108,16 @@ button.select-button {
 }
 
 button.select-button:hover {
-  background-color: #4285f4;
+  background-color: #3d75cf;
 }
 
 button.select-all-button {
-  background-color: blue;
+  background-color: rgb(96, 96, 255);
   color: white;
 }
 
 button.select-all-button:hover {
-  background-color: aqua;
+  background-color: rgb(119, 119, 255);
 }
 
 /* Table for Displaying Data */
@@ -137,8 +137,8 @@ button.select-all-button:hover {
 }
 
 .data-table th {
-  background-color: #f1f1f1;
-  color: #333;
+  background-color: #555;
+  color: white;
   font-weight: bold;
 }
 
