@@ -57,19 +57,19 @@ export class TaskService {
     return this.http.get(`${this.apiUrl}/commits`);
   }
 
-  getCommitById(id: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/commits/${id}`);
+  getCommitById(sha: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/commits/${sha}`);
   }
 
   createCommit(data: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/commits`, data);
   }
 
-  updateCommit(id: number, data: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/commits/${id}`, data);
+  updateCommit(sha: number, data: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/commits/${sha}`, data);
   }
 
-  deleteCommit(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/commits/${id}`);
+  deleteCommit(sha: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/commits/${sha}`);
   }
 }

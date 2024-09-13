@@ -23,9 +23,9 @@ export class CommitsComponent implements OnInit {
     });
   }
 
-  selectCommit(id: number): void {
-    this.taskService.getCommitById(id).subscribe((data) => {
-      this.selectedCommit = id;
+  selectCommit(sha: number): void {
+    this.taskService.getCommitById(sha).subscribe((data) => {
+      this.selectedCommit = sha;
       console.log('Selected Commit:', data);
     });
   }

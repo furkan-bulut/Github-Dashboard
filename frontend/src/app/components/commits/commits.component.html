@@ -25,7 +25,9 @@
         <th>Created At</th>
         <th>Updated At</th>
         <th>Author</th>
-        <th></th>
+        <th>
+          <button class="select-all-button">Select All</button>
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -35,7 +37,7 @@
         <td> {{commit.updated_at}} </td>
         <td> {{commit.author}} </td>
         <td>
-          <button class="select-button" (click)="selectCommit(commit.id)">Select</button>
+          <button class="select--button" (click)="selectCommit(commit.sha)">Select</button>
         </td>
       </tr>
     </tbody>
