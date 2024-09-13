@@ -111,6 +111,15 @@ button.select-button:hover {
   background-color: #4285f4;
 }
 
+button.select-all-button {
+  background-color: blue;
+  color: white;
+}
+
+button.select-all-button:hover {
+  background-color: aqua;
+}
+
 /* Table for Displaying Data */
 .data-table {
   width: 100%;
