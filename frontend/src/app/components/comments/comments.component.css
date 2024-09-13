@@ -111,6 +111,15 @@ button.select-button:hover {
   background-color: #4285f4;
 }
 
+button.select-all-button {
+  background-color: rgb(81, 81, 255);
+  color: white;
+}
+
+button.select-all-button:hover {
+  background-color: rgb(107, 107, 255);
+}
+
 /* Table for Displaying Data */
 .data-table {
   width: 100%;
@@ -127,8 +136,8 @@ button.select-button:hover {
 }
 
 .data-table th {
-  background-color: #f1f1f1;
-  color: #333;
+  background-color: #555;
+  color: white;
   font-weight: bold;
 }
 

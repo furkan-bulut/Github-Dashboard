@@ -112,12 +112,12 @@ button.select-button:hover {
 }
 
 button.select-all-button {
-  background-color: blue;
+  background-color: rgb(81, 81, 255);
   color: white;
 }
 
 button.select-all-button:hover {
-  background-color: aqua;
+  background-color: rgb(107, 107, 255);
 }
 
 /* Table for Displaying Data */
@@ -137,8 +137,8 @@ button.select-all-button:hover {
 }
 
 .data-table th {
-  background-color: #f1f1f1;
-  color: #333;
+  background-color: #555;
+  color: white;
   font-weight: bold;
 }
 
