@@ -1,0 +1,26 @@
+<main>
+    <section class="hero">
+      <h1>Welcome to GitHub Data Dashboard</h1>
+      <p>Your comprehensive tool for managing GitHub data efficiently.</p>
+      <input [(ngModel)]="githubUrl" name="githubUrl" placeholder="Enter GitHub URL" type="text"/>
+      <button class="cta-button" (click)="SendUrlToBackend() ">Get Started</button>
+    </section>
+
+    <section id="features" class="features">
+      <div class="feature">
+        <h2>View Pull Requests</h2>
+        <p>Analyze and manage all your pull requests in one place.</p>
+        <a href="/pull-requests" class="redirect-button">Go To Pull Requests</a>
+      </div>
+      <div class="feature">
+        <h2>Track Commits</h2>
+        <p>Keep an eye on all the commits across your repositories.</p>
+        <a href="/commits" class="redirect-button">Go To Commits</a>
+      </div>
+      <div class="feature">
+        <h2>Manage Comments</h2>
+        <p>View, respond, and organize comments effortlessly.</p>
+        <a href="/comments" class="redirect-button">Go To Comments</a>
+      </div>
+    </section>
+  </main>

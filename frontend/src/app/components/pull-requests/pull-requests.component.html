@@ -1,0 +1,57 @@
+<div class="component-container">
+  <h2 class ="section_heading">Pull Requests</h2>
+
+  <!-- Input form for creating or updating pull requests -->
+  <form>
+    <label>Title: </label>
+    <input [(ngModel)]="newPullRequest.title" name="newPullRequest.title" placeholder="Enter title" type="text"/>
+    <label>State: </label>
+    <input [(ngModel)]="newPullRequest.state" name="newPullRequest.state" placeholder="Enter state"  type="text"/>
+    <label>Created At: </label>
+    <input [(ngModel)]="newPullRequest.created_at" name="newPullRequest.created_at" type="date" />
+    <label>Updated At: </label>
+    <input [(ngModel)]="newPullRequest.updated_at" name="newPullRequest.updated_at" type="date" />
+    <label>Author: </label>
+    <input [(ngModel)]="newPullRequest.author" name="newPullRequest.author" placeholder="Enter author" type="text"/>
+    
+    <button class="create-button" (click)="createNewPullRequest()">Create</button>
+    <button class="update-button" (click)="updatePullRequest()">Update</button>
+    <button class="delete-button" (click)="deletePullRequest()">Delete</button>
+    
+  </form>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>State</th>
+        <th>Created at</th>
+        <th>Updated at</th>
+        <th>Author</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pr of pullRequests">
+        <td>
+          {{ pr.title }} 
+        </td>
+        <td>
+          {{pr.state}} 
+        </td>
+        <td>
+           {{pr.created_at}}
+        </td>
+        <td>
+           {{pr.updated_at}}
+        </td>
+        <td>
+          {{ pr.author }}
+        </td>
+        <td>
+          <button class="select-button" (click)="selectPullRequest(pr.id)">Select</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

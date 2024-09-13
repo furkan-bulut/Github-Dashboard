@@ -1,0 +1,43 @@
+<div class="component-container">
+  <h2 class="section_heading">Comments</h2>
+
+  <!-- Input form for creating or updating comments -->
+  <form>
+    <label>Body: </label>
+    <input [(ngModel)]="newComment.body" name="newComment.body" placeholder="Enter body" type="text" />
+    <label>Created At: </label>
+    <input [(ngModel)]="newComment.created_at" name="newComment.created_at" type="date" />
+    <label>Updated At: </label>
+    <input [(ngModel)]="newComment.updated_at" name="newComment.updated_at" type="date" />
+    <label>Author: </label>
+    <input [(ngModel)]="newComment.author" name="newComment.author" placeholder="Enter author" type="text"/>
+    
+    <button class="create-button" (click)="createNewComment()">Create</button>
+    <button class="update-button" (click)="updateComment()">Update</button>
+    <button class="delete-button" (click)="deleteComment()">Delete</button>
+  </form>
+
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Message</th>
+        <th>Created_at</th>
+        <th>Updated_at</th>
+        <th>Author</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let comment of comments">
+        <td>{{comment.body}}</td>
+        <td>{{comment.created_at}}</td>
+        <td>{{comment.updated_at}}</td>
+        <td>{{comment.author}}</td>
+        <td>
+          <button class="select-button" (click)="selectComment(comment.id)">Select</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

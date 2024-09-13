@@ -1,0 +1,149 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Container for Each Component */
+.component-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Section Heading */
+.section-heading {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #4a90e2;
+  border-bottom: 2px solid #e1e1e1;
+  padding-bottom: 10px;
+}
+
+/* Form Elements */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+}
+
+/* Buttons */
+.button-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Button Variants */
+button.create-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+button.create-button:hover {
+  background-color: #43a047;
+}
+
+button.delete-button {
+  background-color: #f44336;
+  color: white;
+}
+
+button.delete-button:hover {
+  background-color: #e53935;
+}
+
+button.update-button {
+  background-color: #ffa726;
+  color: white;
+}
+
+button.update-button:hover {
+  background-color: #fb8c00;
+}
+
+button.select-button {
+  background-color: #4a90e2;
+  color: white;
+}
+
+button.select-button:hover {
+  background-color: #4285f4;
+}
+
+/* Table for Displaying Data */
+.data-table {
+  width: 100%;
+  max-width: 800px;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px;
+  max-width: 250px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.data-table th {
+  background-color: #f1f1f1;
+  color: #333;
+  font-weight: bold;
+}
+
+.data-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .component-container {
+    padding: 10px;
+  }
+
+  .button-container {
+    flex-direction: column;
+  }
+}

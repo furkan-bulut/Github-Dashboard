@@ -1,0 +1,25 @@
+# Stage 1: Build the Angular application
+FROM node:latest AS build
+
+WORKDIR /usr/src/app
+
+COPY ./package*.json ./
+
+RUN npm install -g @angular/cli@latest && npm install
+
+RUN ng --version
+
+COPY ./ .
+
+RUN ng build --configuration development --output-path=dist
+
+# Stage 2: Serve the application with Angular CLI
+FROM node:latest
+
+WORKDIR /usr/src/app
+
+COPY --from=build /usr/src/app /usr/src/app
+
+EXPOSE 4200
+
+CMD ["ng", "serve", "--host", "0.0.0.0"]

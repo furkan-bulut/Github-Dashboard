@@ -1,0 +1,23 @@
+<!-- Navigation Bar -->
+<nav class="navbar">
+  <div class="container">
+    <a class="nav-brand" href="#">GitHub Dashboard</a>
+    <div class="nav-links">
+      <button class="nav-button" (click)="goToHomePage()">Home</button>
+      <button class="nav-button" (click)="goToPullRequests()">Pull Requests</button>
+      <button class="nav-button" (click)="goToCommits()">Commits</button>
+      <button class="nav-button" (click)="goToComments()">Comments</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container">
+  <router-outlet>
+  </router-outlet> <!-- Dynamically loaded content based on the route -->
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>GitHub CRUD Application</p>
+</footer>

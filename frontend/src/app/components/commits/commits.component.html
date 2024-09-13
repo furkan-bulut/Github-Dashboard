@@ -1,0 +1,43 @@
+<div class="component-container">
+  <h2 class="section_heading">Commits</h2>
+
+  <!-- Input form for creating or updating commits -->
+  <form>
+    <label>sha: </label>
+    <input [(ngModel)]="newCommit.sha" name="newCommit.sha" placeholder="Enter Sha" type="text" />
+    <label>Message: </label>
+    <input [(ngModel)]="newCommit.message" name="newCommit.message" placeholder="Enter message" type="text" />
+    <label>Created At: </label>
+    <input [(ngModel)]="newCommit.created_at" name="newCommit.created_at" type="date"/>
+    <label>Updated At: </label>
+    <input [(ngModel)]="newCommit.updated_at" name="newCommit.updated_at" type="date" />
+    <label>Author: </label>
+    <input [(ngModel)]="newCommit.author" name="newCommit.author" placeholder="Enter author" type="text" />
+    
+    <button class="create-button" (click)="createNewCommit()">Create</button>
+    <button class="update-button" (click)="updateCommit()">Update</button>
+    <button class="delete-button" (click)="deleteCommit()">Delete</button>
+  </form> 
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Message</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+        <th>Author</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let commit of commits">
+        <td> {{commit.message}} </td>
+        <td> {{commit.created_at}} </td>
+        <td> {{commit.updated_at}} </td>
+        <td> {{commit.author}} </td>
+        <td>
+          <button class="select-button" (click)="selectCommit(commit.id)">Select</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

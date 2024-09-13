@@ -1,0 +1,5 @@
+# Use the official MariaDB image as the base image
+FROM mariadb:11.5.2
+
+# Install the MySQL client
+# RUN apt-get update && apt-get install mysql-client
