@@ -121,11 +121,11 @@ app.get('/commits', (req, res) => {
   });
 });
 
-app.get('/commits/:id', (req, res) => {
-  const id = req.params.id; // Extracts the id from the URL
-  console.log(`Received request for commit with ID: ${id}`); // Log the extracted id
+app.get('/commits/:sha', (req, res) => {
+  const sha = req.params.sha; // Extracts the id from the URL
+  console.log(`Received request for commit with sha: ${sha}`); // Log the extracted id
 
-  db.query('SELECT * FROM commits WHERE id = ?', [id], (err, results) => {
+  db.query('SELECT * FROM commits WHERE sha = ?', [sha], (err, results) => {
     if (err) {
       console.error('Error during query execution:', err); // Log the error details
       return res.status(500).send(err);
