@@ -27,7 +27,14 @@ db.connect((err) => {
 
 // CRUD routes for Pull Requests
 app.get('/pull-requests', (req, res) => {
-  db.query(`SELECT * FROM pull_requests WHERE url = "${githubUrl}"`, (err, results) => {
+  const query = `
+    SELECT pr.*, GROUP_CONCAT(l.name) AS labels
+    FROM pull_requests pr
+    LEFT JOIN labels l ON pr.id = l.pull_request_id
+    GROUP BY pr.id
+  `;
+
+  db.query(query, (err, results) => {
     if (err) return res.status(500).send(err);
     res.json(results);
   });
@@ -191,10 +198,23 @@ async function FetchAndStorePullRequests(url) {
     console.log("pulls calisti");
 
     pullRequests.forEach(pr => {
-      const {id, title, state, user, created_at, updated_at } = pr;
-      const query =   `INSERT INTO pull_requests (id, url, title, state, author, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?)`;
-      db.query(query, [id, `${githubUrl}`, title, state, user.login, created_at, updated_at], (err) => {
+      const {id, title, state, user, created_at, updated_at, labels, milestone } = pr;
+      const milestoneTitle = milestone ? milestone.title : null;
+
+      const prQuery =   `INSERT INTO pull_requests (id, url, title, state, author, created_at, updated_at, milestone) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+      db.query(prQuery, [id, `${githubUrl}`, title, state, user.login, created_at, updated_at, milestoneTitle], (err) => {
         if (err) console.error('Error inserting pull request:', err);
+        else {
+          // After inserting the pull request, insert its labels
+          labels.forEach(label => {
+            const labelQuery = `INSERT INTO labels (name, pull_request_id) VALUES (?, ?)`;
+            db.query(labelQuery, [label.name, id], (err) => {
+              if (err) {
+                console.error('Error inserting label:', err);
+              }
+            });
+          });
+        }
       });
     });
   } catch (error) {
