@@ -3,13 +3,15 @@ CREATE DATABASE IF NOT EXISTS github_data;
 USE github_data;
 
 CREATE TABLE IF NOT EXISTS pull_requests (
-  id INT NOT NULL UNIQUE,
+  id INT NOT NULL PRIMARY KEY,
   url VARCHAR(255),
   title VARCHAR(255) NOT NULL,
   state VARCHAR(50) NOT NULL,
   created_at VARCHAR(255),
   updated_at VARCHAR(255),
-  author VARCHAR(255)
+  author VARCHAR(255),
+  label TEXT,
+  milestone VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS comments (
